@@ -8,8 +8,10 @@ Download ffmpeg and update the script to point to the correct path.
 https://ffmpeg.org/download.html
 
 ## Usage:
-export.cmd <in*.mp4> <out.mp4>
 Specify the input files (using wildcards) and output filename.
+```
+export.cmd <in*.mp4> <out.mp4>
+```
 
 ## Details:
 The script first uses the input pattern to generate a chapters.txt containing the names of each file to feed to ffmpeg.
@@ -24,9 +26,12 @@ Then it runs ffmpeg with the following options.
 | -c:v hevc_nvenc | Use Nvidia HEVC to encode the output video. |
 | -b:v 100M | Use 100,000 kbits/s bitrate for encoding. |
 
-### Alternate options (join.cmd):
+### Alternate options:
 
 | Argument | Description |
 | --- | --- |
 | -c copy | Stream copy rather than re-encode. |
 | -map 0:v -map 0:a -map 0:d | Maps video, audio, and data tracks to be copied from each input video to output.  By default ffmpeg strips the data track which contains metadata (e.g. gryo). |
+
+These settings are used by join.cmd.
+
